@@ -22,3 +22,4 @@ module.exports.Eleve = require("./eleve");
 module.exports.AnneeScolaire = require("./anneeScolaire");
 module.exports.Classe = require("./classe");
 module.exports.Finance = require("./finance");
+module.exports.Communique = require("./communique");
