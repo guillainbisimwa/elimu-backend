@@ -19,3 +19,5 @@ module.exports.Account = require("./account");
 module.exports.Parent = require("./parent");
 module.exports.Ecole = require("./ecole");
 module.exports.Eleve = require("./eleve");
+module.exports.AnneeScolaire = require("./anneeScolaire");
+module.exports.Classe = require("./classe");
