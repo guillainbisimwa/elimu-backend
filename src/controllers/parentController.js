@@ -24,5 +24,21 @@ module.exports = {
     }
   },
 
+  getController: async (req, res) => {
+    try {
+      const parent = await db.Parent.find();
+      if (!parent)
+        return res
+          .status(403)
+          .json({ success: false, msg: "Parent doesn't exist" });
 
+      res.status(200).json({
+        success: true,
+        msg: "Parent fetched successfully!",
+        parent: parent,
+      });
+    } catch (err) {
+      res.status(500).json({ success: false, msg: err.message });
+    }
+  },
 }
