@@ -22,4 +22,21 @@ module.exports = {
     }
   },
 
+  getController: async (req, res) => {
+    try {
+      const ecole = await db.Ecole.find();
+      if (!ecole)
+        return res
+          .status(403)
+          .json({ success: false, msg: "Ecole doesn't exist" });
+
+      res.status(200).json({
+        success: true,
+        msg: "Ecole fetched successfully!",
+        ecole: ecole,
+      });
+    } catch (err) {
+      res.status(500).json({ success: false, msg: err.message });
+    }
+  },
 }
