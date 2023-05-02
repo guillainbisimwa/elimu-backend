@@ -33,6 +33,22 @@ module.exports = {
       res.status(500).json({ success: false, msg:err.message });
     }
   },
+  getController: async (req, res) => {
+    try {
+      const finance = await db.Finance.find();
+      if (!finance)
+        return res
+          .status(403)
+          .json({ success: false, msg: "Finance doesn't exist" });
 
+      res.status(200).json({
+        success: true,
+        msg: "Finance fetched successfully!",
+        finance: finance,
+      });
+    } catch (err) {
+      res.status(500).json({ success: false, msg: err.message });
+    }
+  },
 
 }
