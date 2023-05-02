@@ -2,7 +2,13 @@ const express = require("express");
 const cors = require("cors");
 
 const authRoutes = require("./routes/authRoutes");
-// const groupRoutes = require("./routes/groupRoutes");
+const anneeScolaireRoutes = require("./routes/anneeScolaireRoutes");
+const classeRoutes = require("./routes/classeRoutes");
+const communiqueRoutes = require("./routes/communiqueRoutes");
+const ecoleRoutes = require("./routes/ecoleRoutes");
+const eleveRoutes = require("./routes/eleveRoutes");
+const financeRoutes = require("./routes/financeRoutes");
+const parentRoutes = require("./routes/parentRoutes");
 
 const path = require("path");
 const { createServer } = require("http");
@@ -35,7 +41,14 @@ module.exports = (dataService) => {
   });
 
   app.use("/api", authRoutes);
-  // app.use("/api/group", groupRoutes);
+  app.use("/api/anneeScolaire", anneeScolaireRoutes);
+  app.use("/api/classe", classeRoutes);
+  app.use("/api/communique", communiqueRoutes);
+  app.use("/api/ecole", ecoleRoutes);
+  app.use("/api/eleve", eleveRoutes);
+  app.use("/api/finance", financeRoutes);
+  app.use("/api/parent", parentRoutes);
+
 
   server.listen(REST_PORT, () => {
     console.log("Listening on " + REST_PORT);
