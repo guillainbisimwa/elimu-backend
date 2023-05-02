@@ -40,5 +40,22 @@ module.exports = {
     }
   },
   
+  getController: async (req, res) => {
+    try {
+      const communique = await db.Communique.find();
+      if (!communique)
+        return res
+          .status(403)
+          .json({ success: false, msg: "Communique doesn't exist" });
+
+      res.status(200).json({
+        success: true,
+        msg: "Communique fetched successfully!",
+        communique: communique,
+      });
+    } catch (err) {
+      res.status(500).json({ success: false, msg: err.message });
+    }
+  },
 
 }
