@@ -1,5 +1,5 @@
 const express = require("express");
-const { addController, listAnneeScolaire } = require("../controllers/anneeScolaireController");
+const { addController } = require("../controllers/anneeScolaireController");
 const router = express.Router();
 
 router.post('/add', addController);
