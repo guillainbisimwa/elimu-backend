@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const anneeScolaireSchema = new mongoose.Schema({
-  name : {type: String, required: 'Name required'},
+  name : {type: Number, required: 'Name required'},
   timestamp: { type: Date, default: Date.now()}
 });
 

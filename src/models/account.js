@@ -21,6 +21,7 @@ const accountSchema = new mongoose.Schema({
   role : { required: true, type: String },
   roleData :   {
     parent : { type: mongoose.Schema.Types.ObjectId, rel:  'Parent' },
+    eleve : { type: mongoose.Schema.Types.ObjectId, rel:  'Eleve' },
   },
   timestamp: { type: Date, default: Date.now()},
 });
